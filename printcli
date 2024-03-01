@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const codeSnippets = require('./hello');
+const packageJson = require('./package.json');
+
+const displayCodeSnippet = (language) => {
+  const selectedSnippet = codeSnippets[language.toLowerCase()];
+
+  if (selectedSnippet) {
+    console.log(selectedSnippet);
+  } else {
+    console.log('Sorry, no code snippet available for that language.');
+  }
+};
+
+const displayVersion = () => {
+  console.log(`Version: ${packageJson.version}`);
+};
+
+const userInput = process.argv.slice(2);
+
+if (!userInput.length) {
+  console.log('Please provide a programming language after the "printcli" command.');
+} else if (userInput.includes('-v') || userInput.includes('--version')) {
+  displayVersion();
+} else {
+  displayCodeSnippet(userInput.join(' '));
+}
