@@ -1,6 +1,6 @@
 {
-  "name": "printcli",
-  "version": "1.0.0",
+  "name": "@iamovi/printcli",
+  "version": "1.0.1",
   "description": "PrintCLI is a command-line tool that allows users to quickly print code snippets in various programming languages.",
   "main": "printcli",
   "scripts": {

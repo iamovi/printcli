@@ -7,7 +7,7 @@ PrintCLI is a command-line tool that allows users to quickly print code snippets
 To install PrintCLI globally, use the following command:
 
 ```bash
-npm install -g printcli
+npm install -g @iamovi/printcli
 ```
 
 ## Usage
