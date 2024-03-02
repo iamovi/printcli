@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { exec } = require('child_process');
 const codeSnippets = require('./hello');
 const packageJson = require('./package.json');
 
@@ -17,12 +18,35 @@ const displayVersion = () => {
   console.log(`Version: ${packageJson.version}`);
 };
 
+const displayLanguageList = () => {
+  const languages = Object.keys(codeSnippets).join('\n- ');
+  console.log(`Supported languages:\n- ${languages}`);
+};
+
+const checkForUpdate = () => {
+  exec('npm show @iamovi/printcli version', (error, stdout) => {
+    if (!error) {
+      const latestVersion = stdout.trim();
+      const currentVersion = packageJson.version;
+
+      if (currentVersion !== latestVersion) {
+        console.log('\n');
+        console.log(`New version ${latestVersion} is available. Please update using "npm update -g @iamovi/printcli"`);
+      }
+    }
+  });
+};
+
 const userInput = process.argv.slice(2);
 
 if (!userInput.length) {
-  console.log('Please provide a programming language after the "printcli" command.');
+  console.log('Please provide a programming language after the "@iamovi/printcli" command.');
 } else if (userInput.includes('-v') || userInput.includes('--version')) {
   displayVersion();
+} else if (userInput.includes('--list')) {
+  displayLanguageList();
 } else {
   displayCodeSnippet(userInput.join(' '));
 }
+
+checkForUpdate();

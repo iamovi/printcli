@@ -39,7 +39,6 @@ PrintCLI currently supports the following programming languages:
 - PHP
 - HTML
 - Brainfuck
-- Python3
 - TypeScript
 - Rust
 - Kotlin
@@ -53,7 +52,6 @@ PrintCLI currently supports the following programming languages:
 - Swift3
 - R
 - MATLAB
-- Ruby(again)
 - Perl6
 
 Feel free to check the `hello.js` file in the project for an up-to-date list of supported languages.

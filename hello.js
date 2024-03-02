@@ -25,7 +25,6 @@ module.exports = {
     swift3: "print('Hello World!')",
     r: "cat('Hello World!\\n')",
     matlab: "disp('Hello World!');",
-    ruby: "puts 'Hello World!'",
     perl6: "say 'Hello World!';"
   };
   
